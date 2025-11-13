@@ -21,7 +21,7 @@ public class ServiceConfig {
 
     @Data
     public static class Poll {
-        private long intervalMs = 15000L;
+        private long intervalMs ;
 
         public void setIntervalMs(long intervalMs) { this.intervalMs = intervalMs; }
     }

@@ -2,7 +2,7 @@ server:
   port: 8080
 
 poll:
-  intervalMs: 15000 # 15 seconds between checks (adjust as desired)
+  intervalMs: ${MONITOR_POLL_INTERVAL_MS}
 
 spring:
   datasource:

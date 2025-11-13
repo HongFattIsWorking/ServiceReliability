@@ -145,7 +145,6 @@ public class HealthCheckServiceImpl implements HealthCheckService {
         if (body != null && body.trim().startsWith("{")) {
             try {
                 JsonNode root = mapper.readTree(body);
-                String[] keys = {"version", "build.version", "build.version", "data.version"};
                 if (root.has("version")) return root.get("version").asText();
                 if (root.has("build") && root.get("build").has("version")) return root.get("build").get("version").asText();
                 if (root.has("data") && root.get("data").has("version")) return root.get("data").get("version").asText();
