@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+poll:
+  intervalMs: 15000 # 15 seconds between checks (adjust as desired)
+
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+services:
+  - name: github-dev
+    url: https://api.github.com
+    expectedVersion: 2025.12.0
+    environment: dev
+  - name: github-uat
+    url: https://api.github.com
+    expectedVersion: 2025.11.01
+    environment: uat
+  - name: github-prod
+    url: https://api.github.com
+    expectedVersion: 2025.11.0
+    environment: prod
